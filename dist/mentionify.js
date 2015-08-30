@@ -629,7 +629,7 @@
 	return exposed;
 
 }));
-;findAndReplaceDOMText(document.getElementById('t'), {
-  find: /Hello/,
-  wrap: 'em'
+;findAndReplaceDOMText(document.getElementById('example'), {
+  find: /\@canokiid/,
+  wrap: 'strong'
 });
