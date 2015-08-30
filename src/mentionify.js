@@ -12,7 +12,6 @@ function Mentionify() {
         }
 
         findAndReplaceDOMText(document.getElementById(userOptions.elementId), {
-          account: 'test',
           find: /(\@)(\w+)/,
           replace: function(portion, match) {
                 var whole = match[0], mention = match[1], username = match[2],
