@@ -1,26 +1,25 @@
-var default_options = {
+var defaultOptions = {
         account: 'twitter'
     },
-    user_options = null;
+    userOptions = null;
 
 function Mentionify() {
 
     this.run = function(options) {
-        user_options = typeof options !== 'undefined' ?  options : default_options;
-        for (var option in default_options) {
-            user_options[option] = user_options[option] || default_options[option];
+        userOptions = typeof options !== 'undefined' ?  options : defaultOptions;
+        for (var option in defaultOptions) {
+            userOptions[option] = userOptions[option] || defaultOptions[option];
         }
 
-        findAndReplaceDOMText(document.getElementById('example'), {
+        findAndReplaceDOMText(document.getElementById(userOptions.elementId), {
           account: 'test',
           find: /(\@)(\w+)/,
           replace: function(portion, match) {
                 var whole = match[0], mention = match[1], username = match[2],
                     a = document.createElement('a'),
-                    href = '//' + user_options.account + '.com/' + username,
+                    href = '//' + userOptions.account + '.com/' + username,
                     text = document.createTextNode(whole);
 
-                    console.log(href);
                 a.setAttribute('href', href);
                 a.appendChild(text);
 
@@ -36,4 +35,5 @@ function Mentionify() {
 }
 
 var mentionify = new Mentionify();
-mentionify.run({account:'github'});
+mentionify.run({elementId: 'twitter'});
+mentionify.run({elementId: 'github', account:'github'});
