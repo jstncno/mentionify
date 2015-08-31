@@ -13,6 +13,16 @@ npm install --save mentionify
 
 ## Usage
 
+## Future
+
+Add support for the following accounts:
+
+- LinkedIn
+- Reddit
+- and more...
+
+Have a request? File an issue or, better yet, create a pull request ;)
+
 ## Credits
 [Justin Cano](https://github.com/bumrush/)
 
