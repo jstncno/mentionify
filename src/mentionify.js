@@ -33,6 +33,3 @@ function Mentionify() {
 
 }
 
-var mentionify = new Mentionify();
-mentionify.run({elementId: 'twitter'});
-mentionify.run({elementId: 'github', account:'github'});
