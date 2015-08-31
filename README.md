@@ -15,11 +15,13 @@ npm install --save mentionify
 
 ## Future
 
-Add support for the following accounts:
+- Add support for special characters in username, such as `_` and `-`
 
-- LinkedIn
-- Reddit
-- and more...
+- Add support for the following accounts:
+
+    - LinkedIn
+    - Reddit
+    - and more...
 
 Have a request? File an issue or, better yet, create a pull request ;)
 
