@@ -1,0 +1,37 @@
+<html>
+<head>
+</head>
+<body>
+  <div class="container">
+    <p>
+      Hi, I'm Justin. Thanks for checking out <strong><a href="//github.com/bumrush/mentionify.js">mentionify.js</a></strong>. I've used it to link my social media accounts to this page:
+    </p>
+    <p id="twitter">
+      Twitter: @canokiid
+    </p>
+    <p>
+      The default links to the user's <a href="//twitter.com">Twitter</a> profile, but can be overrided by different accounts:
+    </p>
+    <p id="github">
+      Github: @bumrush
+    </p>
+    <p>
+      In fact, you can have <strong>mentionify.js</strong> link to any web profile that has the following URL format: <code>http://<strong>account</strong>.com/<strong>username</strong></code>
+    <p>
+    <p id="facebook">
+      Facebook: @jcano001
+    </p>
+    <p id="portfolium">
+      Portfolium: @justincano
+    </p>
+  </div>
+  <script src="dist/mentionify.js"></script>
+  <script>
+    var mentionify = new Mentionify();
+    mentionify.run({elementId: 'twitter'});
+    mentionify.run({elementId: 'github', account:'github'});
+    mentionify.run({elementId: 'facebook', account:'facebook'});
+    mentionify.run({elementId: 'portfolium', account:'portfolium'});
+  </script>
+</body>
+</html>
