@@ -643,8 +643,7 @@ function Mentionify() {
         }
 
         findAndReplaceDOMText(document.getElementById(userOptions.elementId), {
-          account: 'test',
-          find: /(\@)(\w+)/,
+          find: /\B(\@)(.*)\b/g,
           replace: function(portion, match) {
                 var whole = match[0], mention = match[1], username = match[2],
                     a = document.createElement('a'),
@@ -665,6 +664,3 @@ function Mentionify() {
 
 }
 
-var mentionify = new Mentionify();
-mentionify.run({elementId: 'twitter'});
-mentionify.run({elementId: 'github', account:'github'});

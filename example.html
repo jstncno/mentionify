@@ -8,6 +8,8 @@
     </p>
     <p id="twitter">
       Twitter: @canokiid
+      <br>
+      Another Twtter test: @makr_shakr
     </p>
     <p>
       The default links to the user's <a href="//twitter.com">Twitter</a> profile, but can be overrided by different accounts:
@@ -24,6 +26,16 @@
     <p id="portfolium">
       Portfolium: @justincano
     </p>
+    <p id="soundcloud">
+      SoundCloud: @justin-cano-1
+    </p>
+  </div>
+  <div>
+    <p id="email">
+      Testing for false positives (should not link):
+      <br>
+      Email: jcano001@ucr.edu
+    </p>
   </div>
   <script src="dist/mentionify.js"></script>
   <script>
@@ -32,6 +44,8 @@
     mentionify.run({elementId: 'github', account:'github'});
     mentionify.run({elementId: 'facebook', account:'facebook'});
     mentionify.run({elementId: 'portfolium', account:'portfolium'});
+    mentionify.run({elementId: 'soundcloud', account:'soundcloud'});
+    mentionify.run({elementId: 'email'});
   </script>
 </body>
 </html>
