@@ -70,7 +70,7 @@ You can use **Mentionify** in the `<body>` of your HTML document:
 </script>
 ```
 
-The default `account` option is `twitter` that links to the user's Twitter profile, but can be overridden:
+The default `account` option is `twitter` which links to the user's Twitter profile, but can be overridden:
 
 ```javascript
 <div id="container">
