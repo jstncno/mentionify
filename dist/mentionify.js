@@ -630,6 +630,7 @@
 
 }));
 ;var defaultOptions = {
+        elementId: 'container',
         account: 'twitter'
     },
     userOptions = null;
