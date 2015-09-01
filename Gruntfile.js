@@ -9,6 +9,10 @@ module.exports = function(grunt) {
       dist: {
         src: ['node_modules/findandreplacedomtext/src/findAndReplaceDOMText.js', 'src/**/*.js'],
         dest: 'dist/<%= pkg.name %>.js'
+      },
+      test: {
+        src: ['node_modules/qunitjs/qunit/qunit.js', 'test/**/*.js'],
+        dest: 'lib/qunit.js'
       }
     },
     uglify: {
@@ -22,7 +26,7 @@ module.exports = function(grunt) {
       }
     },
     qunit: {
-      files: ['test/**/*.html']
+      files: ['example.html', 'test/**/*.html']
     },
     jshint: {
       files: ['Gruntfile.js', 'src/**/*.js', 'test/**/*.js']

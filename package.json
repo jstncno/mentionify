@@ -33,6 +33,7 @@
     "lodash": "^3.10.1",
     "minimatch": "^2.0.10",
     "mocha": "^2.2.1",
+    "qunitjs": "^1.18.0",
     "shelljs": "^0.5.3",
     "strip-json-comments": "^1.0.4"
   },

@@ -1,8 +1,16 @@
-describe('mentionify', function () {
+function buildURL(account) {
+    return "://" + account + ".com/";
+}
 
-  it('should work as expected', function (done) {
-    
-    done();
-  });
+function testMentionify(account) {
+    QUnit.test("mentionify", function( assert ) {
+        var links = document.getElementById(account).getElementsByClassName("mentionified");
+        for (var i = 0; i < links.length; i++) {
+            href = links[i].href.slice(links[i].href.indexOf("://"));
+            url = buildURL(account) + links[i].innerHTML.slice(1);
+            assert.equal(href, url);
+        }
+    });
+}
 
-});
+testMentionify("twitter");
