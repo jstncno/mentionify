@@ -634,6 +634,8 @@
     },
     userOptions = null;
 
+var regex = /\B(\@)(.*)\b/g;
+
 function Mentionify() {
 
     this.run = function(options) {
@@ -643,7 +645,7 @@ function Mentionify() {
         }
 
         findAndReplaceDOMText(document.getElementById(userOptions.elementId), {
-          find: /\B(\@)(.*)\b/g,
+          find: regex,
           replace: function(portion, match) {
                 var whole = match[0], mention = match[1], username = match[2],
                     a = document.createElement('a'),
