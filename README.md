@@ -22,7 +22,7 @@ You can add **Mentionify** and run it with some options:
 ```javascript
 <script src="mentionify.js"></script>
 <script>
-    var mentionify = Mentionify();
+    var mentionify = new Mentionify();
     mentionify.run({
         elementId: "twiiter",
         account: "twitter"
@@ -64,7 +64,7 @@ You can use **Mentionify** in the `<body>` of your HTML document:
 
 <script src="mentionify.js"></script>
 <script>
-    var mentionify = Mentionify();
+    var mentionify = new Mentionify();
     mentionify.run({
         account: "twitter"
     });
@@ -82,7 +82,7 @@ The default `account` option is `twitter` which links to the user's Twitter prof
 
 <script src="mentionify.js"></script>
 <script>
-    var mentionify = Mentionify();
+    var mentionify = new Mentionify();
     mentionify.run({
         account: "github"
     });
