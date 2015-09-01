@@ -14,3 +14,7 @@ function testMentionify(account) {
 }
 
 testMentionify("twitter");
+testMentionify("github");
+testMentionify("facebook");
+testMentionify("portfolium");
+testMentionify("soundcloud");
