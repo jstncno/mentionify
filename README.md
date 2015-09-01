@@ -7,7 +7,7 @@ Render '@user' HTML text to link tags that link to their social media profile
 [![build status](https://secure.travis-ci.org/bumrush/mentionify.svg)](http://travis-ci.org/bumrush/mentionify)
 [![dependency status](https://david-dm.org/bumrush/mentionify.svg)](https://david-dm.org/bumrush/mentionify)
 
-**Mentionify** is a tiny JavaScript library that looks for all intances of @'s in HTML text and injects an HTML `a` tag that links to that user's social media profile.
+**Mentionify** is a tiny JavaScript library that looks for all intances of @'s in the DOM's text nodes and injects an HTML `a` tag that links to that user's social media profile.
 
 For example, if your document has something like:
 
