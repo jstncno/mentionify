@@ -33,7 +33,7 @@ module.exports = function(grunt) {
     },
     watch: {
       files: ['<%= jshint.files %>'],
-      tasks: ['jshint', 'concat', 'uglify']
+      tasks: ['jshint', 'concat', 'qunit', 'uglify']
     }
   });
 
@@ -45,6 +45,6 @@ module.exports = function(grunt) {
 
   grunt.registerTask('test', ['jshint', 'qunit']);
 
-  grunt.registerTask('default', ['jshint', 'concat', 'uglify']);
+  grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify']);
 
 };
