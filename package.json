@@ -36,5 +36,6 @@
   "repository": {
     "type": "git",
     "url": "git@github.com:bumrush/mentionify.git"
-  }
+  },
+  "homepage": "http://jcano.me/mentionify"
 }

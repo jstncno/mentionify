@@ -2,9 +2,18 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    banner: '/*!\n' + 
+            ' * <%= pkg.name %> - v<%= pkg.version %> - ' +
+            '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
+            ' <%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
+            ' * Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
+            ' * License: <%= pkg.license %>\n\n' +
+            ' * <%= pkg.description %>\n' +
+            ' */\n',
     concat: {
       options: {
-        separator: ';'
+        banner: '<%= banner %>',
+        stripBanners: true
       },
       dist: {
         src: ['node_modules/findandreplacedomtext/src/findAndReplaceDOMText.js', 'src/**/*.js'],
@@ -17,7 +26,7 @@ module.exports = function(grunt) {
     },
     uglify: {
       options: {
-        banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
+        banner: '<%= banner %>'
       },
       dist: {
         files: {

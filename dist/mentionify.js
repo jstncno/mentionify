@@ -1,13 +1,12 @@
-/**
- * findAndReplaceDOMText v 0.4.3
- * @author James Padolsey http://james.padolsey.com
- * @license http://unlicense.org/UNLICENSE
- *
- * Matches the text of a DOM node against a regular expression
- * and replaces each match (or node-separated portions of the match)
- * in the specified element.
+/*!
+ * mentionify - v0.0.4 - 2015-08-31
+ * http://jcano.me/mentionify
+ * Copyright (c) 2015 Justin Cano <jcano001@ucr.edu>
+ * License: ISC
+
+ * Render '@user' HTML text to link tags that link to their social media profile
  */
- (function (root, factory) {
+(function (root, factory) {
      if (typeof module === 'object' && module.exports) {
          // Node/CommonJS
          module.exports = factory();
@@ -629,7 +628,8 @@
 	return exposed;
 
 }));
-;var defaultOptions = {
+
+var defaultOptions = {
         elementId: 'container',
         account: 'twitter'
     },
