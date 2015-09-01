@@ -3,7 +3,7 @@ function buildURL(account) {
 }
 
 function testMentionify(account) {
-    QUnit.test("mentionify", function( assert ) {
+    QUnit.test("mentionify." + account, function( assert ) {
         var links = document.getElementById(account).getElementsByClassName("mentionified");
         for (var i = 0; i < links.length; i++) {
             href = links[i].href.slice(links[i].href.indexOf("://"));
