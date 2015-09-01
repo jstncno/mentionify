@@ -1,6 +1,6 @@
 {
   "name": "mentionify",
-  "description": "Link '@user' mentions to that user's social media profile",
+  "description": "Convert '@user' HTML text to links to their social media profile",
   "version": "0.0.4",
   "dependencies": {
     "findandreplacedomtext": "^0.4.4"
