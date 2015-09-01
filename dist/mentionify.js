@@ -653,6 +653,7 @@ function Mentionify() {
                     text = document.createTextNode(whole);
 
                 a.setAttribute('href', href);
+                a.setAttribute('class', 'mentionified');
                 a.appendChild(text);
 
                 return a;
