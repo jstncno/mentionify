@@ -26,10 +26,6 @@ function Mentionify() {
                 a.appendChild(text);
 
                 return a;
-            },
-            forceContext: function(el) {
-                // Using https://developer.mozilla.org/en-US/docs/Web/API/Element/matches
-                return el.matches('p');
             }
         });
     };
