@@ -34,7 +34,8 @@ Your document will then be rendered as:
 
 ```javascript
 <p id="twitter">
-    My Twitter handle is <a href="//twitter.com/canokiid" class="mentionified">@canokiid</a>!
+    My Twitter handle is
+    <a href="//twitter.com/canokiid" class="mentionified">@canokiid</a>!
 </p>
 ```
 
