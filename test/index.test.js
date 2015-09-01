@@ -1,5 +1,12 @@
+accounts = {
+    "linkedin": "linkedin.com/in/",
+    "reddit": "reddit.com/r/"
+};
+
 function buildURL(account) {
-    return "://" + account + ".com/";
+    if (!(account in accounts))
+        return "://" + account + ".com/";
+    return accounts[account];
 }
 
 function testMentionify(account) {
