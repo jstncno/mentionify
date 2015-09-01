@@ -1,6 +1,11 @@
+var accounts = {
+    "linkedin": "linkedin.com/in/",
+    "reddit": "reddit.com/u/"
+};
+
 var defaultOptions = {
-        elementId: 'container',
-        account: 'twitter'
+        elementId: "container",
+        account: "twitter"
     },
     userOptions = null;
 
@@ -8,8 +13,12 @@ var REGEX = /\B(\@)(.+)\b/g;
 
 function Mentionify() {
 
+    function getAccountUrl(account) {
+        return accounts.account ? accounts.account : account + ".com/";
+    }
+
     this.run = function(options) {
-        userOptions = typeof options !== 'undefined' ?  options : defaultOptions;
+        userOptions = typeof options !== "undefined" ?  options : defaultOptions;
         for (var option in defaultOptions) {
             userOptions[option] = userOptions[option] || defaultOptions[option];
         }
@@ -18,12 +27,12 @@ function Mentionify() {
           find: REGEX,
           replace: function(portion, match) {
                 var whole = match[0], mention = match[1], username = match[2],
-                    a = document.createElement('a'),
-                    href = '//' + userOptions.account + '.com/' + username,
+                    a = document.createElement("a"),
+                    href = "//" + getAccountUrl(userOptions.account) + username,
                     text = document.createTextNode(whole);
 
-                a.setAttribute('href', href);
-                a.setAttribute('class', 'mentionified');
+                a.setAttribute("href", href);
+                a.setAttribute("class", "mentionified");
                 a.appendChild(text);
 
                 return a;
