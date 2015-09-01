@@ -20,8 +20,17 @@ function testMentionify(account) {
     });
 }
 
+function testEmail() {
+    QUnit.test("mentionify.email", function( assert ) {
+        var links = document.getElementById("email").getElementsByClassName("mentionified");
+        assert.equal(links.length, 0);
+    });
+}
+
 testMentionify("twitter");
 testMentionify("github");
 testMentionify("facebook");
 testMentionify("portfolium");
 testMentionify("soundcloud");
+
+testEmail();
