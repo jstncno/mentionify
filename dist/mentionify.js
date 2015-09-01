@@ -1,5 +1,5 @@
 /*!
- * mentionify - v0.0.4 - 2015-08-31
+ * mentionify - v0.0.5 - 2015-08-31
  * http://jcano.me/mentionify
  * Copyright (c) 2015 Justin Cano <jcano001@ucr.edu>
  * License: ISC
