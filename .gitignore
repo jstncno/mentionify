@@ -5,3 +5,4 @@ coverage
 .jshintignore
 .jshintrc
 lib
+*.log
