@@ -1,9 +1,21 @@
+var delimiters = ["@", "/"];
+
+function getMentionIndex(string) {
+    var index;
+    for (var delimiter in delimiters) {
+        index = string.lastIndexOf(delimiters[delimiter]) + 1;
+        if (index > 0) {
+            return index;
+        }
+    }
+}
+
 function testMentionify(account) {
     QUnit.test("mentionify." + account, function( assert ) {
         var links = document.getElementById(account).getElementsByClassName("mentionified");
         for (var i = 0; i < links.length; i++) {
             href = links[i].href.slice(links[i].href.indexOf("//"));
-            url = "//" + getAccountUrl(account) + links[i].innerHTML.slice(1);
+            url = "//" + getAccountUrl(account) + links[i].innerHTML.slice(getMentionIndex(links[i].innerHTML));
             assert.equal(href, url);
         }
     });

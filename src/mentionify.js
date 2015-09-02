@@ -4,18 +4,25 @@ var accounts = {
 };
 
 var defaultOptions = {
-        elementId: "container",
-        account: "twitter"
+        "elementId": "container",
+        "account": "twitter"
     },
     userOptions = null;
 
-var REGEX = /\B(\@)(.+)\b/g;
+var regexes = {
+    "default": /\B(\@)(.*)\b/g,
+    "reddit": /\B(\/u\/)(.*)\b/g
+};
+
+function getAccountUrl(account) {
+    return accounts[account] ? accounts[account] : account + ".com/";
+}
+
+function getRegex(account) {
+    return regexes[account] ? regexes[account] : regexes["default"];
+}
 
 function Mentionify() {
-
-    function getAccountUrl(account) {
-        return accounts.account ? accounts.account : account + ".com/";
-    }
 
     this.run = function(options) {
         userOptions = typeof options !== "undefined" ?  options : defaultOptions;
@@ -24,7 +31,7 @@ function Mentionify() {
         }
 
         findAndReplaceDOMText(document.getElementById(userOptions.elementId), {
-          find: REGEX,
+          find: getRegex(userOptions.account),
           replace: function(portion, match) {
                 var whole = match[0], mention = match[1], username = match[2],
                     a = document.createElement("a"),
