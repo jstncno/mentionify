@@ -15,7 +15,7 @@ function testMentionify(account) {
         var links = document.getElementById(account).getElementsByClassName("mentionified");
         for (var i = 0; i < links.length; i++) {
             href = links[i].href.slice(links[i].href.indexOf("//"));
-            url = "//" + getAccountUrl(account) + links[i].innerHTML.slice(getMentionIndex(links[i].innerHTML));
+            url = "//" + getAccountUri(account) + links[i].innerHTML.slice(getMentionIndex(links[i].innerHTML));
             assert.equal(href, url);
         }
     });
