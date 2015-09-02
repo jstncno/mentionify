@@ -4,8 +4,8 @@ Render '@user' HTML text to link tags that link to their social media profile
 
 **[See demo](http://www.jcano.me/mentionify/)**
 
-[![build status](https://secure.travis-ci.org/bumrush/mentionify.svg)](http://travis-ci.org/bumrush/mentionify)
-[![dependency status](https://david-dm.org/bumrush/mentionify.svg)](https://david-dm.org/bumrush/mentionify)
+[![build status](https://secure.travis-ci.org/earthican/mentionify.svg)](http://travis-ci.org/earthican/mentionify)
+[![dependency status](https://david-dm.org/earthican/mentionify.svg)](https://david-dm.org/earthican/mentionify)
 
 **Mentionify** is a tiny JavaScript library that looks for all intances of @'s in the DOM's text nodes and injects an HTML `a` tag that links to that user's social media profile.
 
@@ -45,7 +45,7 @@ Install **Mentionify** using one of options below and include it as a `<script>`
 
 ### Option 1
 
-Download the latest stable [mentionify.js](https://github.com/bumrush/mentionify/blob/v0.0.5/dist/mentionify.js)
+Download the latest stable [mentionify.js](https://github.com/earthican/mentionify/blob/v0.0.5/dist/mentionify.js)
 
 ### Option 2
 
@@ -76,7 +76,7 @@ The default `account` option is `twitter` which links to the user's Twitter prof
 ```javascript
 <div id="container">
     <p>
-        My GitHub handle is @bumrush!
+        My GitHub handle is @earthican!
     <p>
 </div>
 
@@ -95,7 +95,7 @@ The above HTML will be rendered as:
 <div id="container">
     <p>
         My GitHub handle is
-        <a href="//github.com/bumrush" class="mentionified">@bumrush</a>!
+        <a href="//github.com/earthican" class="mentionified">@earthican</a>!
     </p>
 </div>
 ```
@@ -131,7 +131,7 @@ Any social media `account` can be used to link to its web profile, provided that
 Have a request? File an issue or, better yet, create a pull request ;)
 
 ## Credits
-[Justin Cano](https://github.com/bumrush/)
+[Justin Cano](https://github.com/earthican/)
 
 ## License
 
