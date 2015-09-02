@@ -130,7 +130,6 @@ Any social media `account` can be used to link to its web profile, provided that
     <li id="linkedin">LinkedIn: /in/justincano</li>
 </ul>
 
-
 <script src="mentionify.js"></script>
 <script>
     var mentionify = new Mentionify();
