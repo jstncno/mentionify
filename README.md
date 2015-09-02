@@ -1,6 +1,6 @@
 # Mentionify
 
-A tiny JS library that renders @'s in HTML text to links to that user's social media profile
+A tiny JS library that renders @'s in the DOM's text to social media profile links
 
 **[See demo](http://www.jcano.me/mentionify/)**
 
