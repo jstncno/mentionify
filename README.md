@@ -1,6 +1,6 @@
 # Mentionify
 
-Render '@user' HTML text to link tags that link to their social media profile
+A tiny JS library that renders @'s in HTML text to links to that user's social media profile
 
 **[See demo](http://www.jcano.me/mentionify/)**
 
