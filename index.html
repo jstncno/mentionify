@@ -13,7 +13,7 @@
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <title>Mentionify by bumrush</title>
+    <title>Mentionify by earthican</title>
   </head>
 
   <body>
@@ -24,21 +24,21 @@
         <h2>
             A tiny JavaScript library that changes all intances of HTML text that matches the pattern "<em>@user</em>" and injects a link tag that links to that user's social media profile.
           <h2>
-        <a href="https://github.com/bumrush/mentionify" class="button"><small>View project on</small> GitHub</a>
+        <a href="https://github.com/earthican/mentionify" class="button"><small>View project on</small> GitHub</a>
       </div>
     </header>
 
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
-          <p><a href="http://travis-ci.org/bumrush/mentionify"><img src="https://secure.travis-ci.org/bumrush/mentionify.svg" alt="build status"></a>
-<a href="https://david-dm.org/bumrush/mentionify"><img src="https://david-dm.org/bumrush/mentionify.svg" alt="dependency status"></a></p>
+          <p><a href="http://travis-ci.org/earthican/mentionify"><img src="https://secure.travis-ci.org/earthican/mentionify.svg" alt="build status"></a>
+<a href="https://david-dm.org/earthican/mentionify"><img src="https://david-dm.org/earthican/mentionify.svg" alt="dependency status"></a></p>
 
 <h3>
 <a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Welcome</h3>
 
 <p>
-  Hi, I'm Justin. Thanks for checking out <strong><a href="//github.com/bumrush/mentionify">Mentionify</a></strong>. 
+  Hi, I'm Justin. Thanks for checking out <strong><a href="//github.com/earthican/mentionify">Mentionify</a></strong>. 
   I've used it to link my social media accounts to this page:
   <p>
     <ul>
@@ -51,7 +51,7 @@
   The default links to the user's <a href="//twitter.com">Twitter</a> profile, but can be overrided by different accounts:
   <p>
     <ul>
-      <li id="github">Github: @bumrush</li>
+      <li id="github">Github: @earthican</li>
     </ul>
   </p>
 </p>
@@ -67,6 +67,16 @@
   </p>
 </p>
 
+<p>
+  <strong>Mentionify</strong> also works with <a href="//reddit.com/">reddit</a> and <a href="//linkedin.com">LinkedIn</a> accounts!
+  <p>
+    <ul>
+      <li id="reddit">reddit: /u/canokiid</li>
+      <li id="linkedin">LinkedIn: /in/justincano</li>
+    </ul>
+  </p>
+</p>
+
 <h3>
 <a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installaion</h3>
 
@@ -74,12 +84,12 @@
   Install <strong>Mentionify</strong> using one of options below and include it as a <code>&lt;script&gt;</code> in your project.
 </p>
 
-<h4>Option 1</h4>
+<strong>Option 1</strong>
 <p>
-  Download the latest stable <a href="https://github.com/bumrush/mentionify/blob/v0.0.4/dist/mentionify.js">mentionify.js</a>
+  Download the latest stable <a href="https://github.com/earthican/mentionify/blob/v0.0.7/dist/mentionify.js">mentionify.js</a>
 </p>
 
-<h4>Option 2</h4>
+<strong>Option 2</strong>
 <p>
   <code>npm install mentionify</code>
 </p>
@@ -115,7 +125,7 @@
   <pre>
   &lt;div id="container"&gt;
       &lt;p&gt;
-          My GitHub handle is @bumrush!
+          My GitHub handle is @earthican!
       &lt;p&gt;
   &lt;/div&gt;
 
@@ -136,7 +146,7 @@
   <pre>
   &lt;div id="container"&gt;
       &lt;p&gt;
-          My GitHub handle is &lt;a href="//github.com/bumrush" class="mentionified"&gt;@bumrush&lt;/a&gt;!
+          My GitHub handle is &lt;a href="//github.com/earthican" class="mentionified"&gt;@earthican&lt;/a&gt;!
       &lt;p&gt;
   &lt;/div&gt;
   </pre>
@@ -173,21 +183,29 @@
 <p>
   Any social media <code>account</code> can be used to link to its web profile, provided that it has the following URL format: <code>http://account.com/username</code>
 </p>
+<p>
+  <strong>Mentionify</strong> also supports <code>reddit</code> and <code>linkedin</code> accounts:
+<p>
+<p>
+  <pre>
+  &lt;ul&gt;
+    &lt;li id="reddit"&gt;reddit: /u/canokiid&lt;/li&gt;
+    &lt;li id="linkedin"&gt;LinkedIn: /in/justincano&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;script src="mentionify.js"&gt;&lt;/script&gt;
+  &lt;script&gt;
+      var mentionify = Mentionify();
+      mentionify.run({elementId: "reddit": account: "reddit"});
+      mentionify.run({elementId: "linkedin": account: "linkedin"});
+  &lt;/script&gt;
+  </pre>
+</p>
 
 <h3>
 <a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span class="octicon octicon-link"></span></a>Future</h3>
 
 <p>
-  <ul>
-    <li>Add support for the following accounts:
-      <ul>
-        <li>LinkedIn</li>
-        <li>Reddit</li>
-        <li>and more...</li>
-      </ul>
-    </li>
-  </ul>
-
   Have a request? File an issue or, better yet, create a pull request ;)
 </p>
 
@@ -195,20 +213,20 @@
 <h3>
 <a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
 
-<p>Having trouble with Mentionify? <a href="https://github.com/bumrush/mentionify/issues">File an issue</a> or <a href="mailto:jcano001@ucr.edu?Subject=Mentionify%Support" target="_top">shoot me an email</a> and I'll be glad to help you out.</p>
+<p>Having trouble with Mentionify? <a href="https://github.com/earthican/mentionify/issues">File an issue</a> or <a href="mailto:jcano001@ucr.edu?Subject=Mentionify%Support" target="_top">shoot me an email</a> and I'll be glad to help you out.</p>
         </section>
 
         <aside id="sidebar">
-          <a href="https://github.com/bumrush/mentionify/zipball/master" class="button">
+          <a href="https://github.com/earthican/mentionify/zipball/master" class="button">
             <small>Download</small>
             .zip file
           </a>
-          <a href="https://github.com/bumrush/mentionify/tarball/master" class="button">
+          <a href="https://github.com/earthican/mentionify/tarball/master" class="button">
             <small>Download</small>
             .tar.gz file
           </a>
 
-          <p class="repo-owner"><a href="https://github.com/bumrush/mentionify"></a> is maintained by <a href="https://github.com/bumrush">bumrush</a>.</p>
+          <p class="repo-owner"><a href="https://github.com/earthican/mentionify"></a> is maintained by <a href="https://github.com/earthican">earthican</a>.</p>
 
           <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
         </aside>
@@ -223,6 +241,8 @@
       mentionify.run({elementId: 'facebook', account:'facebook'});
       mentionify.run({elementId: 'portfolium', account:'portfolium'});
       mentionify.run({elementId: 'soundcloud', account:'soundcloud'});
+      mentionify.run({elementId: 'reddit', account:'reddit'});
+      mentionify.run({elementId: 'linkedin', account:'linkedin'});
     </script>
 
 
