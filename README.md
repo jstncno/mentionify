@@ -45,7 +45,7 @@ Install **Mentionify** using one of options below and include it as a `<script>`
 
 ### Option 1
 
-Download the latest stable [mentionify.js](https://github.com/earthican/mentionify/blob/v0.0.6/dist/mentionify.js)
+Download the latest stable [mentionify.js](https://github.com/earthican/mentionify/blob/v0.0.7/dist/mentionify.js)
 
 ### Option 2
 
