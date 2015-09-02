@@ -120,7 +120,7 @@ The social media account to link to. Default: `twitter`
 
 Any social media `account` can be used to link to its web profile, provided that it has the following URL format: `http://account.com/username`
 
-**Addition account support**
+##### Additional account support
 
 **Mentionify** now also supports `linkedin` and `reddit` accounts:
 
