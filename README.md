@@ -1,4 +1,4 @@
-# Mentionify
+# mentionify.js
 
 A tiny JS library that renders @'s in the DOM's text to social media profile links
 
@@ -7,7 +7,7 @@ A tiny JS library that renders @'s in the DOM's text to social media profile lin
 [![build status](https://secure.travis-ci.org/earthican/mentionify.svg)](http://travis-ci.org/earthican/mentionify)
 [![dependency status](https://david-dm.org/earthican/mentionify.svg)](https://david-dm.org/earthican/mentionify)
 
-**Mentionify** is a tiny JavaScript library that looks for all intances of @'s in the DOM's text nodes and injects an HTML `a` tag that links to that user's social media profile.
+**mentionify.js** is a tiny JavaScript library that looks for all intances of @'s in the DOM's text nodes and injects an HTML `a` tag that links to that user's social media profile.
 
 For example, if your document has something like:
 
@@ -17,7 +17,7 @@ For example, if your document has something like:
 <p>
 ```
 
-You can add **Mentionify** and run it with some options:
+You can add **mentionify.js** and run it with some options:
 
 ```javascript
 <script src="mentionify.js"></script>
@@ -41,7 +41,7 @@ Your document will then be rendered as:
 
 ## Installation
 
-Install **Mentionify** using one of options below and include it as a `<script>` in your project.
+Install **mentionify.js** using one of options below and include it as a `<script>` in your project.
 
 ### Option 1
 
@@ -53,7 +53,7 @@ Download the latest stable [mentionify.js](https://github.com/earthican/mentioni
 
 ## Usage
 
-You can use **Mentionify** in the `<body>` of your HTML document:
+You can use **mentionify.js** in the `<body>` of your HTML document:
 
 ```javascript
 <div id="container">
@@ -104,7 +104,7 @@ The above HTML will be rendered as:
 
 #### **`Mentionify.run()`**
 
-Runs **Mentionify** using the specified options, which are described below.
+Runs **mentionify.js** using the specified options, which are described below.
 
 ### Options
 
@@ -122,7 +122,7 @@ Any social media `account` can be used to link to its web profile, provided that
 
 ##### Additional account support
 
-**Mentionify** now also supports `linkedin` and `reddit` accounts:
+**mentionify.js** now also supports `linkedin` and `reddit` accounts:
 
 ```javascript
 <ul>
