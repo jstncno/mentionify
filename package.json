@@ -1,7 +1,7 @@
 {
   "name": "mentionify",
   "description": "A tiny JS library that renders @'s in HTML text to links to that user's social media profile",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "dependencies": {
     "findandreplacedomtext": "^0.4.4"
   },
