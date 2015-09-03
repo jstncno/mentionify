@@ -1,10 +1,10 @@
 /*!
- * mentionify - v0.0.5 - 2015-09-02
+ * mentionify - v0.0.7 - 2015-09-02
  * http://jcano.me/mentionify
  * Copyright (c) 2015 Justin Cano <jcano001@ucr.edu>
  * License: ISC
 
- * Render '@user' HTML text to link tags that link to their social media profile
+ * A tiny JS library that renders @'s in the DOM's text to social media profile links
  */
 (function (root, factory) {
      if (typeof module === 'object' && module.exports) {
@@ -641,9 +641,9 @@ var accounts = {
 };
 
 var regexes = {
-    "default": /\B(\@)(.+)\b/g,
-    "linkedin": /\B(\/in\/)(.+)\b/g,
-    "reddit": /\B(\/u\/)(.+)\b/g
+    "default": /\B(\@)([a-zA-Z0-9-_]+)\b/g,
+    "linkedin": /\B(\/in\/)([a-zA-Z0-9-_]+)\b/g,
+    "reddit": /\B(\/u\/)([a-zA-Z0-9-_]+)\b/g
 };
 
 function getAccountUri(account) {

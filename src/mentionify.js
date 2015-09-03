@@ -10,9 +10,9 @@ var accounts = {
 };
 
 var regexes = {
-    "default": /\B(\@)(.+)\b/g,
-    "linkedin": /\B(\/in\/)(.+)\b/g,
-    "reddit": /\B(\/u\/)(.+)\b/g
+    "default": /\B(\@)([a-zA-Z0-9-_]+)\b/g,
+    "linkedin": /\B(\/in\/)([a-zA-Z0-9-_]+)\b/g,
+    "reddit": /\B(\/u\/)([a-zA-Z0-9-_]+)\b/g
 };
 
 function getAccountUri(account) {

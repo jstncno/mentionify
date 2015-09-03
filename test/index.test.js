@@ -1,3 +1,18 @@
+QUnit.test("regex", function( assert ) {
+    /* Default regex */
+    assert.ok("@canokiid".match(regexes["default"]));
+    assert.ok("@github and @githubstatus".match(regexes["default"]));
+    assert.ok("I am mentioning @canokiid: hello!".match(regexes["default"]));
+    assert.ok("@_underscore_".match(regexes["default"]));
+    
+    /* LinkedIn regex */
+    assert.ok("/in/justincano".match(regexes.linkedin));
+    assert.ok("Click on /in/justincano to view my LinkedIn profile".match(regexes.linkedin));
+
+    /* reddit regex */
+    assert.ok("Click on /u/canoj to view my reddit profile".match(regexes.reddit));
+});
+
 var delimiters = ["@", "/"];
 
 function getMentionIndex(string) {
