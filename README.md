@@ -126,7 +126,7 @@ Any social media `account` can be used to link to its web profile, provided that
 
 ```javascript
 <ul>
-    <li id="reddit">reddit: /u/canokiid</li>
+    <li id="reddit">reddit: /u/canoj</li>
     <li id="linkedin">LinkedIn: /in/justincano</li>
 </ul>
 
