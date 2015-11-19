@@ -57,7 +57,7 @@ function Mentionify() {
     };
 
     this.runAll = function(elementId) {
-      var elementId = elementId || defaultOptions.elementId;
+      elementId = elementId || defaultOptions.elementId;
 
       accounts.forEach(function(account) {
         var userOptions = {
