@@ -7,7 +7,7 @@ A tiny JS library that renders @'s in the DOM's text to social media profile lin
 [![build status](https://secure.travis-ci.org/earthican/mentionify.js.svg)](http://travis-ci.org/earthican/mentionify.js)
 [![dependency status](https://david-dm.org/earthican/mentionify.js.svg)](https://david-dm.org/earthican/mentionify.js)
 
-**mentionify.js** is a tiny JavaScript library that looks for all intances of @'s in the DOM's text nodes and injects an HTML `a` tag that links to that user's social media profile.
+**mentionify.js** is a tiny JavaScript library that looks for all instances of @'s in the DOM's text nodes and injects an HTML `a` tag that links to that user's social media profile.
 
 For example, if your document has something like:
 
