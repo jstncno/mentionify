@@ -24,7 +24,7 @@ You can add **mentionify.js** and run it with some options:
 <script>
     var mentionify = new Mentionify();
     mentionify.run({
-        elementId: "twiiter",
+        elementId: "twitter",
         account: "twitter"
     });
 </script>
