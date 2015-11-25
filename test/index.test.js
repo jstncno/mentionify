@@ -1,8 +1,8 @@
 QUnit.test("regex", function( assert ) {
     /* Default regex */
-    assert.ok("@canokiid".match(regexes["default"]));
+    assert.ok("@jcvno".match(regexes["default"]));
     assert.ok("@github and @githubstatus".match(regexes["default"]));
-    assert.ok("I am mentioning @canokiid: hello!".match(regexes["default"]));
+    assert.ok("I am mentioning @jcvno: hello!".match(regexes["default"]));
     assert.ok("@_underscore_".match(regexes["default"]));
     
     /* LinkedIn regex */
