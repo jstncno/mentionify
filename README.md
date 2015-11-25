@@ -13,7 +13,7 @@ For example, if your document has something like:
 
 ```javascript
 <p id="twitter">
-    My Twitter handle is @canokiid!
+    My Twitter handle is @jcvno!
 <p>
 ```
 
@@ -35,7 +35,7 @@ Your document will then be rendered as:
 ```javascript
 <p id="twitter">
     My Twitter handle is
-    <a href="//twitter.com/canokiid" class="mentionified">@canokiid</a>!
+    <a href="//twitter.com/jcvno" class="mentionified">@jcvno</a>!
 </p>
 ```
 
@@ -58,7 +58,7 @@ You can use **mentionify.js** in the `<body>` of your HTML document:
 ```javascript
 <div id="container">
     <p>
-        My Twitter handle is @canokiid!
+        My Twitter handle is @jcvno!
     <p>
 </div>
 
