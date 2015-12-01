@@ -6,7 +6,12 @@ var defaultOptions = {
 
 var accounts = {
     "linkedin": "linkedin.com/in/",
-    "reddit": "reddit.com/u/"
+    "reddit": "reddit.com/u/",
+    "twitter": "twitter",
+    "github": "github",
+    "facebook": "facebook",
+    "portfolium": "portfolium",
+    "soundcloud": "soundcloud"
 };
 
 var regexes = {
@@ -23,30 +28,44 @@ function getRegex(account) {
     return regexes[account] ? regexes[account] : regexes["default"];
 }
 
-function Mentionify() {
+function replaceMentions(options) {
+  userOptions = typeof options !== "undefined" ?  options : defaultOptions;
+  for (var option in defaultOptions) {
+      userOptions[option] = userOptions[option] || defaultOptions[option];
+  }
 
-    this.run = function(options) {
-        userOptions = typeof options !== "undefined" ?  options : defaultOptions;
-        for (var option in defaultOptions) {
-            userOptions[option] = userOptions[option] || defaultOptions[option];
-        }
+  findAndReplaceDOMText(document.getElementById(userOptions.elementId), {
+    find: getRegex(userOptions.account),
+    replace: function(portion, match) {
+          var whole = match[0], mention = match[1], username = match[2],
+              a = document.createElement("a"),
+              href = "//" + getAccountUri(userOptions.account) + username,
+              text = document.createTextNode(whole);
 
-        findAndReplaceDOMText(document.getElementById(userOptions.elementId), {
-          find: getRegex(userOptions.account),
-          replace: function(portion, match) {
-                var whole = match[0], mention = match[1], username = match[2],
-                    a = document.createElement("a"),
-                    href = "//" + getAccountUri(userOptions.account) + username,
-                    text = document.createTextNode(whole);
+          a.setAttribute("href", href);
+          a.setAttribute("class", "mentionified");
+          a.appendChild(text);
 
-                a.setAttribute("href", href);
-                a.setAttribute("class", "mentionified");
-                a.appendChild(text);
-
-                return a;
-            }
-        });
-    };
-
+          return a;
+      }
+  });
 }
 
+function Mentionify() {
+    this.run = function(options) {
+        replaceMentions(options);
+    };
+
+    this.runAll = function(elementId) {
+      elementId = elementId || defaultOptions.elementId;
+
+      accounts.forEach(function(account) {
+        var userOptions = {
+          "elementId": elementId,
+          "account": account
+        };
+
+        replaceMentions(userOptions);
+      });
+    };
+}
