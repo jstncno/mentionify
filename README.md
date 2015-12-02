@@ -144,6 +144,18 @@ Any social media `account` can be used to link to its web profile, provided that
 </script>
 ```
 
+## Contributing
+
+### Build
+
+For this repository and clone to your local machine. Make sure `node` and `npm` are installed, then `cd` into project dir and run:
+
+```bash
+$ npm install
+```
+
+Any pull requests that relate to a new or existing feature, please write unit tests for your implementation. It's good practice!
+
 ## Future
 
 Have a request? File an issue or, better yet, create a pull request ;)
