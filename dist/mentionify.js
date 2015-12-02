@@ -1,6 +1,6 @@
 /*!
- * mentionify - v0.0.7 - 2015-09-02
- * http://jcano.me/mentionify
+ * mentionify - v0.0.9 - 2015-12-02
+ * http://jcano.me/mentionify.js
  * Copyright (c) 2015 Justin Cano <jcano001@ucr.edu>
  * License: ISC
 
@@ -643,7 +643,8 @@ var accounts = {
 var regexes = {
     "default": /\B(\@)([a-zA-Z0-9-_]+)\b/g,
     "linkedin": /\B(\/in\/)([a-zA-Z0-9-_]+)\b/g,
-    "reddit": /\B(\/u\/)([a-zA-Z0-9-_]+)\b/g
+    "reddit": /\B(\/u\/)([a-zA-Z0-9-_]+)\b/g,
+    "auto": /\B(\@)([a-zA-Z0-9-_]+)\(([a-zA-Z0-9-_]+)\)/g
 };
 
 function getAccountUri(account) {
@@ -666,8 +667,9 @@ function Mentionify() {
           find: getRegex(userOptions.account),
           replace: function(portion, match) {
                 var whole = match[0], mention = match[1], username = match[2],
+                    account = match[3] || userOptions.account,
                     a = document.createElement("a"),
-                    href = "//" + getAccountUri(userOptions.account) + username,
+                    href = "//" + getAccountUri(account) + username,
                     text = document.createTextNode(whole);
 
                 a.setAttribute("href", href);

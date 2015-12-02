@@ -43,6 +43,22 @@ function testEmail() {
     });
 }
 
+function testAutoMentionify() {
+    QUnit.test("mentionify.auto", function( assert ) {
+        var links = document.getElementById("auto").getElementsByClassName("mentionified");
+        var accounts = [
+            { type: 'twitter', username: 'jcvno' },
+            { type: 'reddit', username: 'canoj' }
+        ];
+
+        for (var i = 0; i < links.length; i++) {
+            href = links[i].href.slice(links[i].href.indexOf("//"));
+            url = "//" + getAccountUri(accounts[i].type) + accounts[i].username;
+            assert.equal(href, url);
+        }
+    });
+}
+
 testMentionify("twitter");
 testMentionify("github");
 testMentionify("facebook");
@@ -52,3 +68,4 @@ testMentionify("linkedin");
 testMentionify("reddit");
 
 testEmail();
+testAutoMentionify();

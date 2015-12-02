@@ -144,6 +144,26 @@ Any social media `account` can be used to link to its web profile, provided that
 </script>
 ```
 
+##### Additional account support
+
+**mentionify.js** now has support for identifiers as part of the mention using the `auto` account option:
+
+```javascript
+<div id="mentions">
+    Reddit: @canoj(reddit)
+    LinkedIn: @justincano(linkedin)
+</div>
+
+<script src="mentionify.js"></script>
+<script>
+    var mentionify = new Mentionify();
+    mentionify.run({
+        elementId: "mentions",
+        account: "auto"
+    });
+</script>
+```
+
 ## Contributing
 
 ### Build
