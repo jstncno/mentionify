@@ -144,7 +144,7 @@ Any social media `account` can be used to link to its web profile, provided that
 </script>
 ```
 
-##### Additional account support
+##### Automated mention identifiers
 
 **mentionify.js** now has support for identifiers as part of the mention using the `auto` account option:
 
