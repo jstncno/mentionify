@@ -148,7 +148,7 @@ Any social media `account` can be used to link to its web profile, provided that
 
 ### Build
 
-For this repository and clone to your local machine. Make sure `node` and `npm` are installed, then `cd` into project dir and run:
+Fork this repository and clone to your local machine. Make sure `node` and `npm` are installed, then `cd` into project dir and run:
 
 ```bash
 $ npm install
