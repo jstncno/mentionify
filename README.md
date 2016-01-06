@@ -178,10 +178,11 @@ Any pull requests that relate to a new or existing feature, please write unit te
 
 ## Future
 
-Have a request? File an issue or, better yet, create a pull request ;)
+I am planning for a v0.1.0 release!
 
-## Credits
-[Justin Cano](https://github.com/earthican/)
+To do so, I am creating/collecting tickets that would be beneficial to include for the release - see [here](https://github.com/earthican/mentionify.js/milestones/First%20minor%20release%20-%20v0.1.0).
+
+If you have a feature request you would like to see in v0.1.0, please file an issue, and we can discuss. Pull requests are welcomed, too! :smile_cat:
 
 ## License
 
