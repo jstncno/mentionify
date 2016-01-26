@@ -1,7 +1,7 @@
 /*!
- * mentionify - v0.0.9 - 2015-12-02
+ * mentionify - v0.0.10 - 2016-01-25
  * http://jcano.me/mentionify.js
- * Copyright (c) 2015 Justin Cano <jcano001@ucr.edu>
+ * Copyright (c) 2016 Justin Cano <jcano001@ucr.edu>
  * License: ISC
 
  * A tiny JS library that renders @'s in the DOM's text to social media profile links
@@ -631,7 +631,8 @@
 
 var defaultOptions = {
         "elementId": "container",
-        "account": "twitter"
+        "account": "twitter",
+        "className": "mentionified"
     },
     userOptions = null;
 
@@ -673,7 +674,7 @@ function Mentionify() {
                     text = document.createTextNode(whole);
 
                 a.setAttribute("href", href);
-                a.setAttribute("class", "mentionified");
+                a.setAttribute("class", userOptions.className);
                 a.appendChild(text);
 
                 return a;
@@ -682,4 +683,3 @@ function Mentionify() {
     };
 
 }
-

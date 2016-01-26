@@ -120,6 +120,10 @@ The social media account to link to. Default: `twitter`
 
 Any social media `account` can be used to link to its web profile, provided that it has the following URL format: `http://account.com/username`
 
+#### **`className` (string)**
+
+The specified CSS `class` name. Default: `mentionified`
+
 ##### Additional account support
 
 **mentionify.js** now also supports `linkedin` and `reddit` accounts:

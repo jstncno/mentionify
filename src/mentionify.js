@@ -1,6 +1,7 @@
 var defaultOptions = {
         "elementId": "container",
-        "account": "twitter"
+        "account": "twitter",
+        "className": "mentionified"
     },
     userOptions = null;
 
@@ -42,7 +43,7 @@ function Mentionify() {
                     text = document.createTextNode(whole);
 
                 a.setAttribute("href", href);
-                a.setAttribute("class", "mentionified");
+                a.setAttribute("class", userOptions.className);
                 a.appendChild(text);
 
                 return a;
@@ -51,4 +52,3 @@ function Mentionify() {
     };
 
 }
-
