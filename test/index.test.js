@@ -59,6 +59,17 @@ function testAutoMentionify() {
     });
 }
 
+function testSpecifiedClassName() {
+    QUnit.test("mentionify.specifiedClassName", function( assert ) {
+        var links = document.getElementById("specified-class-name").getElementsByClassName("some-class-name");
+        for (var i = 0; i < links.length; i++) {
+            href = links[i].href.slice(links[i].href.indexOf("//"));
+            url = "//" + getAccountUri("facebook") + links[i].innerHTML.slice(getMentionIndex(links[i].innerHTML));
+            assert.equal(href, url);
+        }
+    });
+}
+
 testMentionify("twitter");
 testMentionify("github");
 testMentionify("facebook");
@@ -69,3 +80,4 @@ testMentionify("reddit");
 
 testEmail();
 testAutoMentionify();
+testSpecifiedClassName();

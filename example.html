@@ -42,6 +42,12 @@
       Twitter: @jcvno(twitter)
       Reddit: @canoj(reddit)
     </p>
+    <p>
+      Showcasing other options:
+    </p>
+    <p id="specified-class-name">
+      Using a specified class name: @facebook
+    </p>
   </div>
   <div>
     <p id="email">
@@ -61,6 +67,7 @@
     mentionify.run({elementId: 'linkedin', account:'linkedin'});
     mentionify.run({elementId: 'reddit', account:'reddit'});
     mentionify.run({elementId: 'auto', account:'auto'});
+    mentionify.run({elementId: 'specified-class-name', account:'facebook', className:'some-class-name'})
     mentionify.run({elementId: 'email'});
   </script>
   <script src="lib/qunit.js"></script>
