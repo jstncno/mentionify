@@ -4,5 +4,4 @@ coverage
 .jscsrc
 .jshintignore
 .jshintrc
-lib
 *.log
