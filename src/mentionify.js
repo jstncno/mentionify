@@ -1,23 +1,5 @@
 import findAndReplaceDOMText from 'findandreplacedomtext';
-
-var defaultOptions = {
-        "elementId": "container",
-        "account": "twitter",
-        "className": "mentionified"
-    },
-    userOptions = null;
-
-var accounts = {
-    "linkedin": "linkedin.com/in/",
-    "reddit": "reddit.com/u/"
-};
-
-var regexes = {
-    "default": /\B(\@)([a-zA-Z0-9-_]+)\b/g,
-    "linkedin": /\B(\/in\/)([a-zA-Z0-9-_]+)\b/g,
-    "reddit": /\B(\/u\/)([a-zA-Z0-9-_]+)\b/g,
-    "auto": /\B(\@)([a-zA-Z0-9-_]+)\(([a-zA-Z0-9-_]+)\)/g
-};
+import { defaultOptions, accounts, regexes } from './utils';
 
 function getAccountUri(account) {
     return accounts[account] ? accounts[account] : account + ".com/";
@@ -27,10 +9,10 @@ function getRegex(account) {
     return regexes[account] ? regexes[account] : regexes["default"];
 }
 
-function Mentionify() {
+export default class Mentionify {
 
-    this.run = function(options) {
-        userOptions = typeof options !== "undefined" ?  options : defaultOptions;
+    run(options) {
+        var userOptions = typeof options !== "undefined" ?  options : defaultOptions;
         for (var option in defaultOptions) {
             userOptions[option] = userOptions[option] || defaultOptions[option];
         }
@@ -55,6 +37,7 @@ function Mentionify() {
 
 }
 
+module.exports.regexes = regexes;
 
 var mentionify = new Mentionify();
 mentionify.run({elementId: 'twitter'});
