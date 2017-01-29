@@ -7,7 +7,7 @@ var document = jsdom.jsdom(dom);
 var window = document.defaultView;
 
 var sites = ['twitter', 'github', 'facebook', 'portfolium', 'soundcloud', 'linkedin', 'reddit'];
-var delimiters = ["@", "/"];
+var delimiters = ['@', '/'];
 
 function getMentionIndex(string) {
     var index;
@@ -19,17 +19,17 @@ function getMentionIndex(string) {
     }
 }
 
-function testMentionify(site) {
-    describe('mentionify.' + site, function( assert ) {
-        it('should match with @\'s in strings', function() {
-            var links = document.getElementById(site).getElementsByClassName("mentionified");
-            for (var i = 0; i < links.length; i++) {
-                href = links[i].href.slice(links[i].href.indexOf("//"));
-                url = "//" + getSiteUri(site) + links[i].innerHTML.slice(getMentionIndex(links[i].innerHTML));
-                assert.equal(href, url);
-            }
-        });
-    });
-}
-
-sites.map(testMentionify);
+describe('mentionify', function( assert ) {
+    sites.map( site =>
+        describe(site, function( assert ) {
+            it('should match with @\'s in strings', function() {
+                var links = document.getElementById(site).getElementsByClassName('mentionified');
+                for (var i = 0; i < links.length; i++) {
+                    href = links[i].href.slice(links[i].href.indexOf('//'));
+                    url = '//' + getSiteUri(site) + links[i].innerHTML.slice(getMentionIndex(links[i].innerHTML));
+                    assert.equal(href, url);
+                }
+            });
+        })
+    );
+});
