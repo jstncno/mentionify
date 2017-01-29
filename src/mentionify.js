@@ -1,12 +1,12 @@
 import findAndReplaceDOMText from 'findandreplacedomtext';
-import { defaultOptions, accounts, regexes } from './utils';
+import { defaultOptions, sites, regexes } from './utils';
 
-function getAccountUri(account) {
-    return accounts[account] ? accounts[account] : account + ".com/";
+function getSiteUri(site) {
+    return sites[site] ? sites[site] : site + ".com/";
 }
 
-function getRegex(account) {
-    return regexes[account] ? regexes[account] : regexes["default"];
+function getRegex(site) {
+    return regexes[site] ? regexes[site] : regexes["default"];
 }
 
 export default class Mentionify {
@@ -18,12 +18,12 @@ export default class Mentionify {
         }
 
         findAndReplaceDOMText(document.getElementById(userOptions.elementId), {
-          find: getRegex(userOptions.account),
+          find: getRegex(userOptions.site),
           replace: function(portion, match) {
                 var whole = match[0], mention = match[1], username = match[2],
-                    account = match[3] || userOptions.account,
+                    site = match[3] || userOptions.site,
                     a = document.createElement("a"),
-                    href = "//" + getAccountUri(account) + username,
+                    href = "//" + getSiteUri(site) + username,
                     text = document.createTextNode(whole);
 
                 a.setAttribute("href", href);
