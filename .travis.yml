@@ -1,6 +1,4 @@
 language: node_js
 node_js:
-  - "0.12"
-before_install: npm install -g grunt-cli
+  - '6.5.0'
 install: npm install
-before_script: grunt concat:test
