@@ -54,14 +54,14 @@
 
 	var mentionify = new _mentionify2.default();
 	mentionify.run({ elementId: 'twitter' });
-	mentionify.run({ elementId: 'github', account: 'github' });
-	mentionify.run({ elementId: 'facebook', account: 'facebook' });
-	mentionify.run({ elementId: 'portfolium', account: 'portfolium' });
-	mentionify.run({ elementId: 'soundcloud', account: 'soundcloud' });
-	mentionify.run({ elementId: 'linkedin', account: 'linkedin' });
-	mentionify.run({ elementId: 'reddit', account: 'reddit' });
-	mentionify.run({ elementId: 'auto', account: 'auto' });
-	mentionify.run({ elementId: 'specified-class-name', account: 'facebook', className: 'some-class-name' });
+	mentionify.run({ elementId: 'github', site: 'github' });
+	mentionify.run({ elementId: 'facebook', site: 'facebook' });
+	mentionify.run({ elementId: 'portfolium', site: 'portfolium' });
+	mentionify.run({ elementId: 'soundcloud', site: 'soundcloud' });
+	mentionify.run({ elementId: 'linkedin', site: 'linkedin' });
+	mentionify.run({ elementId: 'reddit', site: 'reddit' });
+	mentionify.run({ elementId: 'auto', site: 'auto' });
+	mentionify.run({ elementId: 'specified-class-name', site: 'facebook', className: 'some-class-name' });
 	mentionify.run({ elementId: 'email' });
 
 /***/ },
@@ -100,12 +100,8 @@
 	    }
 	}
 
-	function getAccountUri(account) {
-	    return _utils.accounts[account] ? _utils.accounts[account] : account + ".com/";
-	}
-
-	function getRegex(account) {
-	    return _utils.regexes[account] ? _utils.regexes[account] : _utils.regexes["default"];
+	function getRegex(site) {
+	    return _utils.regexes[site] ? _utils.regexes[site] : _utils.regexes["default"];
 	}
 
 	var Mentionify = function () {
@@ -122,14 +118,14 @@
 	            }
 
 	            (0, _findandreplacedomtext2.default)(document.getElementById(userOptions.elementId), {
-	                find: getRegex(userOptions.account),
+	                find: getRegex(userOptions.site),
 	                replace: function replace(portion, match) {
 	                    var whole = match[0],
 	                        mention = match[1],
 	                        username = match[2],
-	                        account = match[3] || userOptions.account,
+	                        site = match[3] || userOptions.site,
 	                        a = document.createElement("a"),
-	                        href = "//" + getAccountUri(account) + username,
+	                        href = "//" + (0, _utils.getSiteUri)(site) + username,
 	                        text = document.createTextNode(whole);
 
 	                    a.setAttribute("href", href);
@@ -148,6 +144,7 @@
 	exports.default = Mentionify;
 
 	module.exports.regexes = _utils.regexes;
+	module.exports.getSiteUri = _utils.getSiteUri;
 
 /***/ },
 /* 2 */
@@ -795,11 +792,11 @@
 
 	module.exports.defaultOptions = {
 	    "elementId": "container",
-	    "account": "twitter",
+	    "site": "twitter",
 	    "className": "mentionified"
 	};
 
-	module.exports.accounts = {
+	var sites = {
 	    "linkedin": "linkedin.com/in/",
 	    "reddit": "reddit.com/u/"
 	};
@@ -810,6 +807,12 @@
 	    "reddit": /\B(\/u\/)([a-zA-Z0-9-_]+)\b/g,
 	    "auto": /\B(\@)([a-zA-Z0-9-_]+)\(([a-zA-Z0-9-_]+)\)/g
 	};
+
+	function getSiteUri(site) {
+	    return sites[site] ? sites[site] : site + ".com/";
+	}
+
+	module.exports.getSiteUri = getSiteUri;
 
 /***/ }
 /******/ ]);

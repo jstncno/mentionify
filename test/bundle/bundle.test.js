@@ -2,12 +2,12 @@ import Mentionify from '../../lib/mentionify';
 
 var mentionify = new Mentionify();
 mentionify.run({elementId: 'twitter'});
-mentionify.run({elementId: 'github', account:'github'});
-mentionify.run({elementId: 'facebook', account:'facebook'});
-mentionify.run({elementId: 'portfolium', account:'portfolium'});
-mentionify.run({elementId: 'soundcloud', account:'soundcloud'});
-mentionify.run({elementId: 'linkedin', account:'linkedin'});
-mentionify.run({elementId: 'reddit', account:'reddit'});
-mentionify.run({elementId: 'auto', account:'auto'});
-mentionify.run({elementId: 'specified-class-name', account:'facebook', className:'some-class-name'})
+mentionify.run({elementId: 'github', site:'github'});
+mentionify.run({elementId: 'facebook', site:'facebook'});
+mentionify.run({elementId: 'portfolium', site:'portfolium'});
+mentionify.run({elementId: 'soundcloud', site:'soundcloud'});
+mentionify.run({elementId: 'linkedin', site:'linkedin'});
+mentionify.run({elementId: 'reddit', site:'reddit'});
+mentionify.run({elementId: 'auto', site:'auto'});
+mentionify.run({elementId: 'specified-class-name', site:'facebook', className:'some-class-name'})
 mentionify.run({elementId: 'email'});

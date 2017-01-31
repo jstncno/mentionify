@@ -1,10 +1,10 @@
 module.exports.defaultOptions = {
     "elementId": "container",
-    "account": "twitter",
+    "site": "twitter",
     "className": "mentionified"
 };
 
-module.exports.accounts = {
+var sites = {
     "linkedin": "linkedin.com/in/",
     "reddit": "reddit.com/u/"
 };
@@ -15,3 +15,9 @@ module.exports.regexes = {
     "reddit": /\B(\/u\/)([a-zA-Z0-9-_]+)\b/g,
     "auto": /\B(\@)([a-zA-Z0-9-_]+)\(([a-zA-Z0-9-_]+)\)/g
 };
+
+function getSiteUri(site) {
+    return sites[site] ? sites[site] : site + ".com/";
+}
+
+module.exports.getSiteUri = getSiteUri;

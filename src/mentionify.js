@@ -1,9 +1,5 @@
 import findAndReplaceDOMText from 'findandreplacedomtext';
-import { defaultOptions, sites, regexes } from './utils';
-
-function getSiteUri(site) {
-    return sites[site] ? sites[site] : site + ".com/";
-}
+import { defaultOptions, regexes , getSiteUri } from './utils';
 
 function getRegex(site) {
     return regexes[site] ? regexes[site] : regexes["default"];
@@ -38,3 +34,4 @@ export default class Mentionify {
 }
 
 module.exports.regexes = regexes;
+module.exports.getSiteUri = getSiteUri;
