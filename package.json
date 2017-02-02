@@ -7,8 +7,10 @@
     "findandreplacedomtext": "^0.4.4"
   },
   "scripts": {
-    "build": "babel src -d lib && uglifyjs --self -c -m -o lib/mentionify.min.js && webpack",
-    "test": "mocha --compilers js:babel-core/register test/*.test.js"
+    "build": "babel src -d lib && uglifyjs --self -c -m -o lib/mentionify.min.js",
+    "test:build": "npm run build && webpack",
+    "test:run": "mocha --compilers js:babel-core/register test/*.test.js",
+    "test": "npm run test:build && npm run test:run"
   },
   "publishConfig": {
     "registry": "http://registry.npmjs.org"
