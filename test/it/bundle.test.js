@@ -1,4 +1,4 @@
-import Mentionify from '../../lib/Mentionify';
+import Mentionify from '../../lib/mentionify';
 
 Mentionify.run({elementId: 'twitter'});
 Mentionify.run({elementId: 'github', site:'github'});
