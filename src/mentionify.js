@@ -5,9 +5,8 @@ function getRegex(site) {
     return regexes[site] ? regexes[site] : regexes["default"];
 }
 
-export default class Mentionify {
-
-    run(options) {
+module.exports = {
+    run: function(options) {
         var userOptions = typeof options !== "undefined" ?  options : defaultOptions;
         for (var option in defaultOptions) {
             userOptions[option] = userOptions[option] || defaultOptions[option];
@@ -29,9 +28,9 @@ export default class Mentionify {
                 return a;
             }
         });
-    };
+    },
 
+    regexes: regexes,
+
+    getSiteUri: getSiteUri
 }
-
-module.exports.regexes = regexes;
-module.exports.getSiteUri = getSiteUri;
