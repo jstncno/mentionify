@@ -1,19 +1,14 @@
-QUnit.test("regex", function( assert ) {
-    /* Default regex */
-    assert.ok("@jcvno".match(regexes["default"]));
-    assert.ok("@github and @githubstatus".match(regexes["default"]));
-    assert.ok("I am mentioning @jcvno: hello!".match(regexes["default"]));
-    assert.ok("@_underscore_".match(regexes["default"]));
-    
-    /* LinkedIn regex */
-    assert.ok("/in/justincano".match(regexes.linkedin));
-    assert.ok("Click on /in/justincano to view my LinkedIn profile".match(regexes.linkedin));
+import jsdom from 'jsdom';
+import fs from 'fs';
+import assert from 'assert';
+import { getSiteUri } from '../lib/utils';
 
-    /* reddit regex */
-    assert.ok("Click on /u/canoj to view my reddit profile".match(regexes.reddit));
-});
+var html = fs.readFileSync(__dirname + '/index.test.html');
+var mentionify = __dirname + '/../bin/test/test.mentionify.bundle.js';
 
-var delimiters = ["@", "/"];
+var sites = ['twitter', 'github', 'facebook', 'portfolium', 'soundcloud', 'linkedin', 'reddit'];
+
+var delimiters = ['@', '/'];
 
 function getMentionIndex(string) {
     var index;
@@ -25,59 +20,61 @@ function getMentionIndex(string) {
     }
 }
 
-function testMentionify(account) {
-    QUnit.test("mentionify." + account, function( assert ) {
-        var links = document.getElementById(account).getElementsByClassName("mentionified");
-        for (var i = 0; i < links.length; i++) {
-            href = links[i].href.slice(links[i].href.indexOf("//"));
-            url = "//" + getAccountUri(account) + links[i].innerHTML.slice(getMentionIndex(links[i].innerHTML));
-            assert.equal(href, url);
+describe('mentionify integration test', function() {
+    jsdom.env({
+        html: html,
+        scripts: [mentionify],
+        done: function (err, window) {
+            sites.map( site =>
+                describe(site, function() {
+                    it('should render @\'s to links', function() {
+                        var links = window.document.getElementById(site).getElementsByClassName('mentionified');
+                        assert.notEqual(links.length, 0);
+                        for (var i = 0; i < links.length; i++) {
+                            var href = links[i].href.slice(links[i].href.indexOf('//'));
+                            var url = '//' + getSiteUri(site) + links[i].innerHTML.slice(getMentionIndex(links[i].innerHTML));
+                            assert.equal(href, url);
+                        }
+                    });
+                })
+            );
+
+            describe('email', function() {
+                it('should not render email link', function() {
+                    var links = window.document.getElementById('email').getElementsByClassName('mentionified');
+                    assert.equal(links.length, 0);
+                });
+            });
+
+            describe('auto', function() {
+                it('should automatically parse and render site link', function() {
+                    var links = window.document.getElementById('auto').getElementsByClassName('mentionified');
+                    assert.notEqual(links.length, 0);
+
+                    var sites = [
+                        { type: 'twitter', username: 'jcvno' },
+                        { type: 'reddit', username: 'canoj' }
+                    ];
+
+                    for (var i = 0; i < links.length; i++) {
+                        var href = links[i].href.slice(links[i].href.indexOf('//'));
+                        var url = '//' + getSiteUri(sites[i].type) + sites[i].username;
+                        assert.equal(href, url);
+                    }
+                });
+            });
+
+            describe('specifiedClassName', function() {
+                it('should created the specified class name', function() {
+                    var links = window.document.getElementById('specified-class-name').getElementsByClassName('some-class-name');
+                    assert.notEqual(links.length, 0);
+                    for (var i = 0; i < links.length; i++) {
+                        var href = links[i].href.slice(links[i].href.indexOf('//'));
+                        var url = '//' + getSiteUri('facebook') + links[i].innerHTML.slice(getMentionIndex(links[i].innerHTML));
+                        assert.equal(href, url);
+                    }
+                });
+            });
         }
     });
-}
-
-function testEmail() {
-    QUnit.test("mentionify.email", function( assert ) {
-        var links = document.getElementById("email").getElementsByClassName("mentionified");
-        assert.equal(links.length, 0);
-    });
-}
-
-function testAutoMentionify() {
-    QUnit.test("mentionify.auto", function( assert ) {
-        var links = document.getElementById("auto").getElementsByClassName("mentionified");
-        var accounts = [
-            { type: 'twitter', username: 'jcvno' },
-            { type: 'reddit', username: 'canoj' }
-        ];
-
-        for (var i = 0; i < links.length; i++) {
-            href = links[i].href.slice(links[i].href.indexOf("//"));
-            url = "//" + getAccountUri(accounts[i].type) + accounts[i].username;
-            assert.equal(href, url);
-        }
-    });
-}
-
-function testSpecifiedClassName() {
-    QUnit.test("mentionify.specifiedClassName", function( assert ) {
-        var links = document.getElementById("specified-class-name").getElementsByClassName("some-class-name");
-        for (var i = 0; i < links.length; i++) {
-            href = links[i].href.slice(links[i].href.indexOf("//"));
-            url = "//" + getAccountUri("facebook") + links[i].innerHTML.slice(getMentionIndex(links[i].innerHTML));
-            assert.equal(href, url);
-        }
-    });
-}
-
-testMentionify("twitter");
-testMentionify("github");
-testMentionify("facebook");
-testMentionify("portfolium");
-testMentionify("soundcloud");
-testMentionify("linkedin");
-testMentionify("reddit");
-
-testEmail();
-testAutoMentionify();
-testSpecifiedClassName();
+});
