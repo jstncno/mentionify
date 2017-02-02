@@ -1,8 +1,8 @@
-node_modules
-coverage
+node_modules/
+bin/
+coverage/
 .editorconfig
 .jscsrc
 .jshintignore
 .jshintrc
-lib
 *.log
