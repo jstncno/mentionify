@@ -20,7 +20,7 @@ function getMentionIndex(string) {
     }
 }
 
-describe('mentionify', function() {
+describe('mentionify integration test', function() {
     jsdom.env({
         html: html,
         scripts: [mentionify],
@@ -29,12 +29,10 @@ describe('mentionify', function() {
                 describe(site, function() {
                     it('should render @\'s to links', function() {
                         var links = window.document.getElementById(site).getElementsByClassName('mentionified');
-                        console.log(links.length);
                         assert.notEqual(links.length, 0);
                         for (var i = 0; i < links.length; i++) {
                             var href = links[i].href.slice(links[i].href.indexOf('//'));
                             var url = '//' + getSiteUri(site) + links[i].innerHTML.slice(getMentionIndex(links[i].innerHTML));
-                            console.log(href, url);
                             assert.equal(href, url);
                         }
                     });

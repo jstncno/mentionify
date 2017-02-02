@@ -1,5 +1,5 @@
 module.exports = {
-    entry: './test/bundle/bundle.test.js',
+    entry: './test/it/bundle.test.js',
     output: {
         path: './bin/test',
         filename: 'test.mentionify.bundle.js'
