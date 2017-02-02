@@ -17,17 +17,15 @@ For example, if your document has something like:
 <p>
 ```
 
-You can add **mentionify.js** and run it with some options:
+You can use the **mentionify** Node.js module and run it with some options:
 
 ```javascript
-<script src="mentionify.js"></script>
-<script>
-    var mentionify = new Mentionify();
-    mentionify.run({
-        elementId: "twitter",
-        account: "twitter"
-    });
-</script>
+import mentionify from 'mentionify';
+
+mentionify.run({
+    elementId: 'twitter'
+    site: 'twitter'
+});
 ```
 
 Your document will then be rendered as:
@@ -43,53 +41,57 @@ Your document will then be rendered as:
 
 **mentionify** is a Node.js module published to npm:
 
-`npm install mentionify`
+`$ npm install mentionify`
 
 ## Usage
 
-You can use **mentionify.js** in the `<body>` of your HTML document:
+You can use the **mentionify** as a Node.js module:
 
-```javascript
-import Mentionify from '../../lib/mentionify';
+**index.html:**
 
-var Mentionify = new Mentionify();
-
+```html
 <div id="container">
     <p>
         My Twitter handle is @jcvno!
     <p>
 </div>
-
-<script src="mentionify.js"></script>
-<script>
-    var mentionify = new Mentionify();
-    mentionify.run({
-        account: "twitter"
-    });
-</script>
 ```
 
-The default `account` option is `twitter` which links to the user's Twitter profile, but can be overridden:
+**app.js:**
 
 ```javascript
+import mentionify from 'mentionify';
+
+mentionify.run({
+    site: 'twitter'
+});
+```
+
+The default `site` option is `twitter` which links to the user's Twitter profile, but can be overridden:
+
+**index.html:**
+
+```html
 <div id="container">
     <p>
-        My GitHub handle is @earthican!
+        My Twitter handle is @earthican!
     <p>
 </div>
+```
 
-<script src="mentionify.js"></script>
-<script>
-    var mentionify = new Mentionify();
-    mentionify.run({
-        account: "github"
-    });
-</script>
+**app.js:**
+
+```javascript
+import mentionify from 'mentionify';
+
+mentionify.run({
+    site: 'github'
+});
 ```
 
 The above HTML will be rendered as:
 
-```javascript
+```html
 <div id="container">
     <p>
         My GitHub handle is
@@ -98,11 +100,13 @@ The above HTML will be rendered as:
 </div>
 ```
 
+In fact, the `site` option can [any site that has the URL format `http://${ site }.com/${ username }`](http.s://github.com/earthican/mentionify.js#account-string).
+
 ### API
 
-#### **`Mentionify.run()`**
+#### **`mentionify.run()`**
 
-Runs **mentionify.js** using the specified options, which are described below.
+Runs the **mentionify** module using the specified options, which are described below.
 
 ### Options
 
@@ -112,9 +116,9 @@ The following options can be passed into **`Mentionify.run()`**
 
 The `id` of the element to find and render "_@user_" text to `a` tags. Default: `container`
 
-#### **`account` (string)**
+#### **`site` (string)**
 
-The social media account to link to. Default: `twitter`
+The social media site to link to. Default: `twitter`
 
 Any social media `account` can be used to link to its web profile, provided that it has the following URL format: `http://account.com/username`
 
@@ -122,49 +126,76 @@ Any social media `account` can be used to link to its web profile, provided that
 
 The specified CSS `class` name. Default: `mentionified`
 
-##### Additional account support
+##### Additional `site` support
 
-**mentionify.js** now also supports `linkedin` and `reddit` accounts:
+**mentionify** now also supports `linkedin` and `reddit` sites:
 
-```javascript
+**`index.html`:**
+
+```html
 <ul>
     <li id="reddit">reddit: /u/canoj</li>
     <li id="linkedin">LinkedIn: /in/justincano</li>
 </ul>
+```
 
-<script src="mentionify.js"></script>
-<script>
-    var mentionify = new Mentionify();
-    mentionify.run({
-        elementId: "reddit",
-        account: "reddit"
-    });
-    mentionify.run({
-        elementId: "linkedin",
-        account: "linkedin"
-    });
-</script>
+**app.js**
+
+```javascript
+import metionify from 'mentionify';
+
+mentionify.run({
+    elementId: "reddit",
+    site: "reddit"
+});
+mentionify.run({
+    elementId: "linkedin",
+    site: "linkedin"
+});
+```
+
+**Rendered DOM:**
+
+```html
+<ul>
+    <li id="reddit">reddit: <a href="//reddit.com/u/canoj" class="mentionified">/u/canoj</a></li>
+    <li id="linkedin">LinkedIn: <a href="//linkedin.com/in/justincano" class="mentionified">/in/justincano</a></li>
+</ul>
 ```
 
 ##### Automated mention identifiers
 
-**mentionify.js** now has support for identifiers as part of the mention using the `auto` account option:
+**mentionify** now has support for identifiers as part of the mention using the `auto` account option:
 
-```javascript
+**`index.html`:**
+
+```html
 <div id="mentions">
     Reddit: @canoj(reddit)
     LinkedIn: @justincano(linkedin)
 </div>
-
-<script src="mentionify.js"></script>
-<script>
-    var mentionify = new Mentionify();
-    mentionify.run({
-        elementId: "mentions",
-        account: "auto"
-    });
-</script>
 ```
+
+**app.js**
+
+```javascript
+import mentionify from 'mentionify';
+
+mentionify.run({
+    elementId: "mentions",
+    site: "auto"
+});
+```
+
+**Rendered DOM:**
+
+```html
+<div id="mentions">
+    Reddit: <a href="//reddit.com/u/canoj" class="mentionified">@canoj(reddit)</a>
+    LinkedIn: <a href="//linkedin.com/in/justincano" class="mentionified">@justincano(linkedin)</a>
+</div>
+```
+
 
 ## Contributing
 
@@ -180,9 +211,7 @@ Any pull requests that relate to a new or existing feature, please write unit te
 
 ## Future
 
-I am planning for a v0.1.0 release!
-
-To do so, I am creating/collecting tickets that would be beneficial to include for the release - see [here](https://github.com/earthican/mentionify.js/milestones/First%20minor%20release%20-%20v0.1.0).
+I am planning for a **v0.1.0** release. To do so, I am creating/collecting tickets that would be beneficial to include for the release - see [here](https://github.com/earthican/mentionify.js/milestones/First%20minor%20release%20-%20v0.1.0).
 
 If you have a feature request you would like to see in v0.1.0, please file an issue, and we can discuss. Pull requests are welcomed, too! :smile_cat:
 
