@@ -41,13 +41,7 @@ Your document will then be rendered as:
 
 ## Installation
 
-Install **mentionify.js** using one of options below and include it as a `<script>` in your project.
-
-### Option 1
-
-Download the latest stable [mentionify.js](https://github.com/earthican/mentionify/blob/v0.0.8/dist/mentionify.js)
-
-### Option 2
+**mentionify** is a Node.js module published to npm:
 
 `npm install mentionify`
 
@@ -56,6 +50,10 @@ Download the latest stable [mentionify.js](https://github.com/earthican/mentioni
 You can use **mentionify.js** in the `<body>` of your HTML document:
 
 ```javascript
+import Mentionify from '../../lib/mentionify';
+
+var Mentionify = new Mentionify();
+
 <div id="container">
     <p>
         My Twitter handle is @jcvno!
