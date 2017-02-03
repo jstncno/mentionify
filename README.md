@@ -100,7 +100,7 @@ The above HTML will be rendered as:
 </div>
 ```
 
-In fact, the `site` option can [any site that has the URL format `http://${ site }.com/${ username }`](http.s://github.com/earthican/mentionify.js#account-string).
+In fact, the `site` option can [any site that has the URL format `http://${ site }.com/${ username }`](https://github.com/earthican/mentionify.js#site-string).
 
 ### API
 
@@ -120,7 +120,7 @@ The `id` of the element to find and render "_@user_" text to `a` tags. Default: 
 
 The social media site to link to. Default: `twitter`
 
-Any social media `account` can be used to link to its web profile, provided that it has the following URL format: `http://account.com/username`
+Any social media `site` can be used to link to its web profile, provided that it has the following URL format: `http://${ site }.com/${ username }`
 
 #### **`className` (string)**
 
