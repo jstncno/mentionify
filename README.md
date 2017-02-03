@@ -130,7 +130,7 @@ The specified CSS `class` name. Default: `mentionified`
 
 **mentionify** now also supports `linkedin` and `reddit` sites:
 
-**`index.html`:**
+**index.html:**
 
 ```html
 <ul>
