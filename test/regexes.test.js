@@ -1,4 +1,4 @@
-import { regexes } from '../src/utils';
+import { regexes, buildSiteUrl } from '../src/utils';
 import assert from 'assert';
 
 describe('regex', function() {
@@ -8,6 +8,8 @@ describe('regex', function() {
       assert.ok('@github and @githubstatus'.match(regexes['default']));
       assert.ok('I am mentioning @jcvno: hello!'.match(regexes['default']));
       assert.ok('@_underscore_'.match(regexes['default']));
+
+      assert.equal(buildSiteUrl(), '//twitter.com/jcvno');
     });
   });
 });

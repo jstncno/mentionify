@@ -2,12 +2,12 @@ import findAndReplaceDOMText from 'findandreplacedomtext';
 import { defaultOptions, regexes , getSiteUri } from './utils';
 
 function getRegex(site) {
-    return regexes[site] ? regexes[site] : regexes["default"];
+    return regexes[site] ? regexes[site] : regexes['default'];
 }
 
 module.exports = {
     run: function(options) {
-        var userOptions = typeof options !== "undefined" ?  options : defaultOptions;
+        var userOptions = typeof options !== 'undefined' ?  options : defaultOptions;
         for (var option in defaultOptions) {
             userOptions[option] = userOptions[option] || defaultOptions[option];
         }
@@ -17,12 +17,15 @@ module.exports = {
           replace: function(portion, match) {
                 var whole = match[0], mention = match[1], username = match[2],
                     site = match[3] || userOptions.site,
-                    a = document.createElement("a"),
-                    href = "//" + getSiteUri(site) + username,
+                    a = document.createElement('a'),
+                    href = '//' + getSiteUri(site, urlTemplate) + username,
                     text = document.createTextNode(whole);
 
-                a.setAttribute("href", href);
-                a.setAttribute("class", userOptions.className);
+                console.log(site);
+                console.log(match[3]);
+
+                a.setAttribute('href', href);
+                a.setAttribute('class', userOptions.className);
                 a.appendChild(text);
 
                 return a;
