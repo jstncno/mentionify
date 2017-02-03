@@ -120,7 +120,9 @@ The `id` of the element to find and render "_@user_" text to `a` tags. Default: 
 
 The social media site to link to. Default: `twitter`
 
-Any social media `site` can be used to link to its web profile, provided that it has the following URL format: `http://${ site }.com/${ username }`
+Any social media `site` can be used to link to its web profile, provided that it has the following URL format: 
+
+`http://${ site }.com/${ username }`
 
 #### **`className` (string)**
 
