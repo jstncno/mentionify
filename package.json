@@ -1,7 +1,7 @@
 {
   "name": "mentionify",
-  "description": "A tiny JS library that renders @'s in the DOM's text to social media profile links",
-  "version": "0.0.11",
+  "description": "A Node.js module that renders @'s in the DOM's text to social media profile links",
+  "version": "0.0.12",
   "dependencies": {
     "babel-polyfill": "^6.22.0",
     "findandreplacedomtext": "^0.4.4"
